@@ -39,7 +39,7 @@ void max2(vector<int> arr)
 
 // TC: O(n)
 // SC: O(1)
-void optimal(vector<int> &arr)
+void max3(vector<int> &arr)
 {
     int n = arr.size();
     int maxi = arr[0];
