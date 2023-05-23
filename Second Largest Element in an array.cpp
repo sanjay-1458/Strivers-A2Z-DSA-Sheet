@@ -45,7 +45,7 @@ void smax2(vector<int> arr)
 void smax3(vector<int> &arr)
 {
     int n = arr.size();
-    int maxi = INT_MIN;
+    int maxi = arr[0];
     int smax = INT_MIN;
     for (int i = 0; i < n; ++i)
     {
