@@ -4,12 +4,12 @@ using namespace std;
 
 // TC: O(nlog(n)) + O(n)
 // SC: O(1)
-void smax1(vector<int> arr)
+void secondlargest1(vector<int> arr)
 {
     int n = arr.size();
     sort(arr.begin(), arr.end());
-    int maxi = arr[n - 1], i = n - 1;
-    while (maxi == arr[i])
+    int largest = arr[n - 1], i = n - 1;
+    while (largest == arr[i])
     {
         i--;
     }
@@ -18,57 +18,57 @@ void smax1(vector<int> arr)
 
 // TC: O(n) + O(n)
 // SC: O(1)
-void smax2(vector<int> arr)
+void secondlargest2(vector<int> arr)
 {
     int n = arr.size();
-    int maxi = arr[0];
+    int largest = arr[0];
     for (int i = 0; i < n; ++i)
     {
-        if (arr[i] > maxi)
+        if (arr[i] > largest)
         {
-            maxi = arr[i];
+            largest = arr[i];
         }
     }
-    int smax = INT_MIN;
+    int secondlargest = INT_MIN;
     for (int i = 0; i < n; ++i)
     {
-        if (arr[i] < maxi && arr[i] > smax)
+        if (arr[i] < largest && arr[i] > secondlargest)
         {
-            smax = arr[i];
+            secondlargest = arr[i];
         }
     }
-    cout << smax << endl;
+    cout << secondlargest << endl;
 }
 
 // TC: O(n)
 // SC: O(1)
-void smax3(vector<int> &arr)
+void secondlargest3(vector<int> &arr)
 {
     int n = arr.size();
-    int maxi = arr[0];
-    int smax = INT_MIN;
+    int largest = arr[0];
+    int secondlargest = INT_MIN;
     for (int i = 0; i < n; ++i)
     {
-        if (arr[i] > maxi)
+        if (arr[i] > largest)
         {
-            smax = maxi;
-            maxi = arr[i];
+            secondlargest = largest;
+            largest = arr[i];
         }
-        else if (arr[i] > smax && arr[i] != maxi)
+        else if (arr[i] > secondlargest && arr[i] != largest)
         {
-            smax = arr[i];
+            secondlargest = arr[i];
         }
         else
         {
             continue;
         }
     }
-    cout << smax << endl;
+    cout << secondlargest << endl;
 }
 
 int main()
 {
     vector<int> vec = {1, 3, 2, 1, 8, 5, 8, 0, 1};
-    smax(vec);
+    secondlargest(vec);
     return 0;
 }
