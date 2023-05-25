@@ -24,25 +24,22 @@ void leftrotateD1(vector<int> arr, int k)
     cout << endl;
 }
 
-// TC: O(k) + O(k) + O(n-2k) + O(n-k)
+// TC: O(k) + O(n-k) + O(n)
 // SC: O(1)
 void leftrotateD2(vector<int> arr, int k)
 {
     int n = arr.size();
     k = k % n;
-    for (int i = 0; i < k; ++i)
-    {
-        swap(arr[i], arr[n - k + i]);
-    }
     reverse(arr.begin(), arr.begin() + k);
-    reverse(arr.begin() + k, arr.begin() + n - k);
-    reverse(arr.begin(), arr.begin() + n - k);
+    reverse(arr.begin() + k, arr.end());
+    reverse(arr.begin(), arr.end());
     for (auto e : arr)
     {
         cout << e << " ";
     }
     cout << endl;
 }
+
 
 int main()
 {
