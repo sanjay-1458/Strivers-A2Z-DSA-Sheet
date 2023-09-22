@@ -1,5 +1,4 @@
 #include<vector>
-
 vector<vector<int>> mergeOverlappingIntervals(vector<vector<int>> &arr){
 	// Write your code here.
 	vector<vector<int>> ans;
@@ -27,3 +26,26 @@ vector<vector<int>> mergeOverlappingIntervals(vector<vector<int>> &arr){
 }
 
 
+#include<vector>
+vector<vector<int>> mergeOverlappingIntervals(vector<vector<int>> &arr){
+	// Write your code here.
+	vector<vector<int>> ans;
+	int n=arr.size();
+	vector<int> vis(n,0);
+	for(int i=0;i<n;++i){
+		if(vis[i]==0){
+			int el1=arr[i][0],el2=arr[i][1];
+			vis[i]=1;
+			for(int j=i+1;j<n;++j){
+				int el3=arr[j][0],el4=arr[j][1];
+				if(el2>=el3){
+					el1=min(el1,el3);
+					el2=max(el2,el4);
+					vis[j]=1;
+				}
+			}
+			ans.push_back({el1,el2});
+		}
+	}
+	return ans;
+}
