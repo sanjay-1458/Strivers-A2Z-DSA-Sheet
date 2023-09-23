@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
 // TC: O(n)
 // SC: O(n)
 void leftrotate1(vector<int> arr)
@@ -20,6 +19,7 @@ void leftrotate1(vector<int> arr)
     }
     cout << endl;
 }
+
 
 // TC: O(n)
 // SC: O(1)
