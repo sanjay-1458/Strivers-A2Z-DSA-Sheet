@@ -1,6 +1,5 @@
 vector<vector<int>> triplet(int n, vector<int> &arr)
 {
-    // Write your code here.
     sort(arr.begin(),arr.end());
     int i=0,j=1,k=n-1;
     vector<vector<int>> v;
