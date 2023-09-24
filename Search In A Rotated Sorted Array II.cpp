@@ -23,5 +23,14 @@ bool searchInARotatedSortedArrayII(vector<int>&A, int key) {
             }
         }
     }
+    low=0,high=A.size()-1;
+    int mid=low+(high-low)/2;
+    if(A[low]==A[mid] && A[low]==A[high]){
+        for(int i=0;i<A.size();++i){
+            if(A[i]==key){
+                return true;
+            }
+        }
+    }
     return false;
 }
