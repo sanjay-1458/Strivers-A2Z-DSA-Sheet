@@ -1,34 +1,28 @@
-bool fun(vector<int>&arr,int cows,int dist){
+bool fun(vector<int>&arr, int dist,int cows){
+    int cnt=1;
     int prev=arr[0];
-    int ans=1;
     for(int i=1;i<arr.size();++i){
         if(arr[i]-prev>=dist){
+            cnt++;
             prev=arr[i];
-            ans++;
         }
-        if(ans>=cows){
-            return true;
-        }
+        if(cnt>=cows) return true;
     }
     return false;
 }
 
-int aggressiveCows(vector<int> &stalls, int k)
+int aggressiveCows(vector<int> &arr, int k)
 {
-    int mini=stalls[0],maxi=stalls[0];
-    for(int i=0;i<stalls.size();++i){
-        if(mini>stalls[i]){
-            mini=stalls[i];
-        }
-        if(maxi<stalls[i]){
-            maxi=stalls[i];
-        }
+    sort(arr.begin(),arr.end());
+    int maxi=arr[0],mini=arr[0];
+    for(int i=0;i<arr.size();++i){
+        if(maxi<arr[i]) maxi=arr[i];
+        if(mini>arr[i]) mini=arr[i];
     }
-    sort(stalls.begin(),stalls.end());
     int low=0,high=maxi-mini;
     while(low<=high){
-        int mid=low+(high-low)/2;
-        if(fun(stalls,k,mid)){
+        int mid=low+(high-low)/2;//dist
+        if(fun(arr,mid,k)){
             low=mid+1;
         }
         else{
