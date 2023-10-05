@@ -1,20 +1,19 @@
-#include<bits/stdc++.h>
 int missingK(vector < int > vec, int n, int k) {
-    if(vec[0]>k) return k;
+    // Write your code here.
+    if(k<vec[0]) return k;
     int low=0,high=n-1;
     while(low<=high){
         int mid=low+(high-low)/2;
-        int diff=vec[mid]-mid-1;
-        if(diff<k){
+        int missing=vec[mid]-mid-1;
+        if(missing<k){
             low=mid+1;
         }
         else{
             high=mid-1;
         }
     }
-    int pos=high,val=0;
-    int miss=vec[pos]-pos-1;
-    int next=k-miss;
-    val=vec[pos]+next;
+    int miss=vec[high]-high-1;
+    int pos=k-miss;
+    int val=vec[high]+pos;
     return val;
 }
