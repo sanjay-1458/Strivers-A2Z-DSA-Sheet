@@ -1,4 +1,4 @@
-int first(vector<int>& arr,int n,int x){
+int first(vector<int>&arr,int n,int x){
 	int ans=-1;
 	int low=0,high=n-1;
 	while(low<=high){
@@ -17,7 +17,7 @@ int first(vector<int>& arr,int n,int x){
 	return ans;
 }
 
-int last(vector<int>& arr,int n,int x){
+int last(vector<int>&arr,int n,int x){
 	int ans=-1;
 	int low=0,high=n-1;
 	while(low<=high){
@@ -26,22 +26,21 @@ int last(vector<int>& arr,int n,int x){
 			ans=mid;
 			low=mid+1;
 		}
-		else if(arr[mid]<x){
-			low=mid+1;
+		else if(arr[mid]>x){
+			high=mid-1;
 		}
 		else{
-			high=mid-1;
+			low=mid+1;
 		}
 	}
 	return ans;
 }
 
 int count(vector<int>& arr, int n, int x) {
-	int start=first(arr,n,x);
-	int end=last(arr,n,x);
-	int freq=end-start+1;
-	if(end==-1){
+	// Write Your Code Here
+	int cnt=first(arr,n,x);
+	if(cnt==-1){
 		return 0;
 	}
-	return freq;
+	return last(arr,n,x)-cnt+1;
 }
