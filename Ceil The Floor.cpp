@@ -49,3 +49,42 @@ pair<int, int> getFloorAndCeil(int arr[], int n, int x) {
 	ans.second=ans2;
 	return ans;
 }
+
+
+int floor(vector<int>&arr,int n,int x){
+	int low=0,high=n-1;
+	while(low<=high){
+		int mid=low+(high-low)/2;
+		if(arr[mid]<=x){
+			low=mid+1;
+		}
+		else{
+			high=mid-1;
+		}
+	}
+	if(high==-1) return -1;
+	return arr[high];
+}
+
+int ceil(vector<int>&arr,int n,int x){
+	int low=0,high=n-1;
+	while(low<=high){
+		int mid=low+(high-low)/2;
+		if(arr[mid]>=x){
+			high=mid-1;
+		}
+		else{
+			low=mid+1;
+		}
+	}
+	if(low==n) return -1;
+	return arr[low];
+}
+
+pair<int, int> getFloorAndCeil(vector<int> &a, int n, int x) {
+	// Write your code here.
+	int p1=floor(a,n,x);
+	int p2=ceil(a,n,x);
+	pair<int,int> p={p1,p2};
+	return p;
+}
