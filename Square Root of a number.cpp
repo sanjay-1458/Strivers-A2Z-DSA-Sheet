@@ -19,3 +19,20 @@ int floorSqrt(int n)
     }
     return (int)ans;
 }
+
+
+int floorSqrt(int n)
+{
+    long long int low=1,high=n;
+    while(low<=high){
+        long long int mid=low+(high-low)/2;
+        if(mid*mid<=n){
+            low=mid+1;
+        }
+        else{
+            high=mid-1;
+        }
+    }
+    return high;
+}
+
