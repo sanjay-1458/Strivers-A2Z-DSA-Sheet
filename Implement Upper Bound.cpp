@@ -2,16 +2,15 @@
 // Upper Bound = arr[i] > x;
 
 int upperBound(vector<int> &arr, int x, int n){
-	// Write your code here.
-	int low=0,high=n-1;
-	while(low<=high){
-		int mid=low+(high-low)/2;
-		if(arr[mid]<=x){
-			low=mid+1;
+	int l=0,h=n-1;
+	while(l<=h){
+		int m=(l+h)/2;
+		if(arr[m]<=x){
+			l=m+1;
 		}
 		else{
-			high=mid-1;
+			h=m-1;
 		}
 	}
-	return low;
+	return l;
 }
