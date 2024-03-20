@@ -88,3 +88,35 @@ pair<int, int> getFloorAndCeil(vector<int> &a, int n, int x) {
 	pair<int,int> p={p1,p2};
 	return p;
 }
+int f(vector<int> &a, int n, int x){
+	int l=0,h=n-1;
+	while(l<=h){
+		int m=l+(h-l)/2;
+		if(a[m]<=x){
+			l=m+1;
+		}
+		else{
+			h=m-1;
+		}
+	}
+	return h==-1?-1:a[h];
+}
+int c(vector<int> &a, int n, int x){
+	int l=0,h=n-1;
+	while(l<=h){
+		int m=(l+h)/2;
+		if(a[m]<x){
+			l=m+1;
+		}
+		else{
+			h=m-1;
+		}
+	}
+	return l==n?-1:a[l];
+}
+
+pair<int, int> getFloorAndCeil(vector<int> &a, int n, int x) {
+	int flr=f(a,n,x);
+	int cel =c(a,n,x);
+	return {flr,cel};
+}
