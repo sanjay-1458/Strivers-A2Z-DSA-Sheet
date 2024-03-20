@@ -1,18 +1,19 @@
-int searchInsert(vector<int>& arr, int m)
-{
-	// Write your code here.
-	int low=0,high=arr.size()-1;
-	while(low<=high){
-		int mid=low+(high-low)/2;
-		if(arr[mid]==m){
-			return mid;
-		}
-		else if(arr[mid]>m){
-			high=mid-1;
-		}
-		else{
-			low=mid+1;
-		}
-	}
-	return low;
-}
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int t) {
+        int l=0,h=nums.size()-1;
+        while(l<=h){
+            int m=l+(h-l)/2;
+            if(nums[m]==t){
+                return m;
+            }
+            if(nums[m]<t){
+                l=m+1;
+            }
+            else{
+                h=m-1;
+            }
+        }
+        return l;
+    }
+};
